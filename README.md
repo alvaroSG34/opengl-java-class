@@ -1,84 +1,57 @@
-# OpenGL Java Class (LWJGL)
+# Flappy Bird en Java con OpenGL
 
-Proyecto base de OpenGL en Java usando **LWJGL + GLFW**, con dos entradas:
+Mini-juego estilo **Flappy Bird** desarrollado en Java usando **LWJGL**, **GLFW** y **OpenGL**.
 
-- `com.graphics.App` (triángulo básico)
-- `com.graphics.AppMovimientoTeclado` (triángulo movible con teclado)
+El proyecto incluye:
+
+- Ventana y renderizado 2D con OpenGL.
+- Pajaro controlable por teclado.
+- Tuberias con colisiones.
+- Puntaje y pantalla de estado.
+- Sonidos para salto, punto, muerte y game over.
+- Texturas y fuentes incluidas en el proyecto.
 
 ## Requisitos
 
-- Java 17 o superior
-- Maven 3.9+
-- macOS (este `pom.xml` ya incluye `natives-macos` y `natives-macos-arm64`)
+- Java 17 o superior.
+- Maven 3.9 o superior.
+- Windows o macOS con soporte para OpenGL.
 
-## 1) Crear un proyecto Maven (desde cero)
+## Compilar
 
-Si quieres crear un proyecto nuevo igual a este formato:
-
-```bash
-mvn archetype:generate \
-  -DgroupId=com.graphics \
-  -DartifactId=opengl-java-class \
-  -DarchetypeArtifactId=maven-archetype-quickstart \
-  -DinteractiveMode=false
-```
-
-Luego entra al proyecto:
-
-```bash
-cd opengl-java-class
-```
-
-Después debes:
-
-1. Reemplazar el `pom.xml` por uno con dependencias de LWJGL/GLFW/OpenGL.
-2. Crear las clases en `src/main/java/com/graphics/`.
-
-## 2) Ubicarte en este proyecto
-
-En este repo en particular, la carpeta que contiene el `pom.xml` es:
-
-```bash
-cd "/Users/kenjikv/Documents/Personal/Personal/ProgramacionGrafica/OpenGL/Clase 01/opengl-java-class/opengl-java-class"
-```
-
-## 3) Compilar
+Desde la carpeta donde esta el `pom.xml`:
 
 ```bash
 mvn compile
 ```
 
-## 4) Ejecutar cada app por separado
-
-### Ejecutar `App` (triángulo base)
+## Ejecutar
 
 ```bash
-mvn compile exec:exec -DmainClass=com.graphics.App
+mvn compile exec:exec -DmainClass=com.graphics.flappybird.AppFlappyBird
 ```
 
-Tambien puedes ejecutarla con la clase por defecto definida en `pom.xml`:
+## Controles
 
-```bash
-mvn exec:exec
+- `W`: saltar / iniciar / reiniciar.
+- `SPACE`: saltar / iniciar / reiniciar.
+- `R`: reiniciar despues de perder.
+- `ESC`: cerrar la ventana.
+
+## Recursos
+
+Los recursos del juego estan en:
+
+- `src/main/resources/textures/`
+- `src/main/resources/sfx/`
+- `src/main/java/com/graphics/flappybird/`
+
+## Clase principal
+
+La entrada del juego es:
+
+```text
+com.graphics.flappybird.AppFlappyBird
 ```
 
-### Ejecutar `AppMovimientoTeclado` (mover con WASD/flechas)
-
-```bash
-mvn compile exec:exec -DmainClass=com.graphics.AppMovimientoTeclado
-```
-
-## Controles en `AppMovimientoTeclado`
-
-- `W` / `Flecha Arriba`: mover arriba
-- `S` / `Flecha Abajo`: mover abajo
-- `A` / `Flecha Izquierda`: mover izquierda
-- `D` / `Flecha Derecha`: mover derecha
-- `ESC`: cerrar ventana
-
-## Problema comun: "no encuentra POM"
-
-Si ves un error de Maven indicando que no hay `pom.xml`, estas ejecutando en la carpeta incorrecta.
-Debes ejecutar los comandos dentro de:
-
-`.../opengl-java-class/opengl-java-class`
+Si Maven indica que no encuentra el `pom.xml`, ejecuta los comandos desde la carpeta raiz del proyecto.
