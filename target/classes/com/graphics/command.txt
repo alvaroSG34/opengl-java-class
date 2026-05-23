@@ -1,5 +1,0 @@
-mvn compile exec:exec "-DmainClass=com.graphics.flappybird.AppFlappyBird"
-mvn compile exec:exec "-DmainClass=com.graphics.Practica"
-mvn compile exec:exec "-DmainClass=com.graphics.AppMovimientoZoom"
-
-mvn compile exec:exec "-DmainClass=com.graphics.flappybird.AppFlappyBird"
